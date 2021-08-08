@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name = "viowport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../css/css.css">
+		<link rel="stylesheet" href="../css/navbar.css" >
+		<title>Submit New Reimbursement Request</title>
+		<meta charset="utf-8">
+</head>
+<body>
+	<div class ="navbar">
+			<ul class="nav-items">
+				<li class="nav-item">Home</li>
+				<li class="nav-item" id ="logout">Logout</li>
+			</ul>
+	</div>
+	<div class="container">
+		<div class="reimbursements">
+			<table id="re-table" class="reimbursement-table">
+				<tr>
+					<th>Reimbursement Status</th>
+					<th>Reimbursement Type</th>
+					<th>Reimbursement Amount</th>
+					<th>Description</th>
+					<th>Date of Submission</th>
+					<th>Date of Resolved</th>
+				</tr>
+			</table>
+		</div>
+	
+	</div>
+	<h1>Submit new request</h1>
+	<form id='newReimbursement'>
+		<label for='type'>Reimbursement Type: </label>
+		<select id='type' name='type' required id='type'>
+			<option value="none" selected disabled hidden> Select an Option</option>
+			<option value='LODGING'>Lodging</option>
+			<option value='TRAVEL'>Travel</option>
+			<option value='FOOD'>Food</option>
+			<option value='OTHER'>Other</option>
+		</select>
+		<label for='amount'>Amount: </label>
+		<input id='amount' type='number' step='any' min="0" required id='amount'>
+		<!-- <label for='description'>Description: </label>
+		<input type='text' name='description' maxlength='150' required id='description'>-->
+		<textarea id="desc" rows="5" cols="50" maxlength="250" required></textarea>
+		<input type='submit' value="New Request"/>
+	</form>
+	<script src="../js/reimbursement.js"></script>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>Submit New Request</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Submit A New Request</h1>
+
+        <form id='newRequest'>
+            <label for='type'>Reimbursement Type: </label>
+            <select id='type' name='type' required id='type'>
+                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value='LODGING'>Lodging</option>
+                <option value='TRAVEL'>Travel</option>
+                <option value='FOOD'>Food</option>
+                <option value='OTHER'>Other</option>
+            </select>
+            <label for='amount'>Amount: </label>
+            <input type='number' step='any' name='amount' min="0" required id='amount'>
+            <label for='description'>Description: </label>
+            <input type='text' name='description' maxlength='150' required id='description'>
+            <input type='submit' value="New Request"/>
+        </form>
+        <script src="../js/reimbursement.js"></script>
+    </body>
+</html> -->

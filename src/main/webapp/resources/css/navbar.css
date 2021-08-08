@@ -1,0 +1,25 @@
+@charset "ISO-8859-1";
+body{
+	margin: 0;
+}
+.nav-items{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background-color: #80ffff;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+.nav-item{
+	float: left;
+	display: block;
+	color: black;
+	padding: 15px 17px;
+	margin-left: 25px;
+	text-decoration: none;
+}
+.nav-item:hover{
+	cursor: pointer;
+	background: #0080ff;
+}

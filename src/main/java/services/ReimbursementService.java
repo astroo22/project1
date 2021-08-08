@@ -52,17 +52,23 @@ public class ReimbursementService {
 		}
 	}
 	public List<Reimbursement> getAllReimbursementsForUser(User u){
+		System.out.println("get All Reimbursements for User55");
 		List<Reimbursement> results = new ArrayList<Reimbursement>();
 		List<Reimbursement> penL = rDao.getAllPendingReimbursementsForUser(u);
 		List<Reimbursement> denL = rDao.getAllDeniedReimbursementsForUser(u);
 		List<Reimbursement> appL = rDao.getAllApprovedReimbursementsForUser(u);
 		for(Reimbursement r:penL) {
+			System.out.println("r:penl");
+			System.out.println(r.toString());
 			results.add(r);
 		}
 		for(Reimbursement r:denL) {
+			System.out.println("r:penl");
+			System.out.println(r.toString());
 			results.add(r);
 		}
 		for(Reimbursement r:appL) {
+			System.out.println(r.toString());
 			results.add(r);
 		}
 		return results;
@@ -85,6 +91,41 @@ public class ReimbursementService {
 	public List<Reimbursement> getAllApprovedReimbursements(){
 		return rDao.getAllApprovedReimbursements();
 	}
-	
+	public List<Reimbursement> getAllApprovedReimbursementsForUser(User u){
+		System.out.println("get All Reimbursements for User55");
+		List<Reimbursement> results = new ArrayList<Reimbursement>();
+		
+		List<Reimbursement> appL = rDao.getAllApprovedReimbursementsForUser(u);
+		for(Reimbursement r:appL) {
+			System.out.println(r.toString());
+			results.add(r);
+		}
+		return results;
+	}
+	public List<Reimbursement> getAllDeniedReimbursementsForUser(User u){
+		System.out.println("get All Reimbursements for User55");
+		List<Reimbursement> results = new ArrayList<Reimbursement>();
+
+		List<Reimbursement> denL = rDao.getAllDeniedReimbursementsForUser(u);
+		for(Reimbursement r:denL) {
+			System.out.println("r:penl");
+			System.out.println(r.toString());
+			results.add(r);
+		}
+
+		return results;
+	}
+	public List<Reimbursement> getAllPendingReimbursementsForUser(User u){
+		System.out.println("get All Reimbursements for User55");
+		List<Reimbursement> results = new ArrayList<Reimbursement>();
+		List<Reimbursement> penL = rDao.getAllPendingReimbursementsForUser(u);
+		
+		for(Reimbursement r:penL) {
+			System.out.println("r:penl");
+			System.out.println(r.toString());
+			results.add(r);
+		}
+		return results;
+	}
 
 }

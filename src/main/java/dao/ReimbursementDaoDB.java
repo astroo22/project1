@@ -34,7 +34,6 @@ public class ReimbursementDaoDB implements ReimbursementDao {
 		 System.out.println("SelectAllReimbursements before Query");
          List<Reimbursement> l = ses.createQuery("from Reimbursement", Reimbursement.class).list();
          System.out.println("SelectAllReimbursements after Query");
-         ses.clear();
          return l;
 	}
 
@@ -61,7 +60,7 @@ public class ReimbursementDaoDB implements ReimbursementDao {
 	public List<Reimbursement> getAllReimbursements() {
 		// TODO Auto-generated method stub
 		Session ses = HibernateUtil.getSession();
-		List<Reimbursement> rList = ses.createQuery("from reimbursement",Reimbursement.class).list();
+		List<Reimbursement> rList = ses.createQuery("from Reimbursement",Reimbursement.class).list();
 		return rList;
 	}
 
@@ -69,14 +68,14 @@ public class ReimbursementDaoDB implements ReimbursementDao {
 	public List<Reimbursement> getAllPendingReimbursements() {
 		// TODO Auto-generated method stub
 		Session ses = HibernateUtil.getSession();
-		List<Reimbursement> rList = ses.createQuery("from reimbursement where re_status_id = 2", Reimbursement.class).list();
+		List<Reimbursement> rList = ses.createQuery("from Reimbursement where re_status_id = 2", Reimbursement.class).list();
 		return rList;
 	}
 
 	@Override
 	public List<Reimbursement> getAllApprovedReimbursements() {
 		Session ses = HibernateUtil.getSession();
-		List<Reimbursement> rList = ses.createQuery("from reimbursement where re_status_id = 0", Reimbursement.class).list();
+		List<Reimbursement> rList = ses.createQuery("from Reimbursement where re_status_id = 0", Reimbursement.class).list();
 		return rList;
 	}
 
@@ -84,7 +83,7 @@ public class ReimbursementDaoDB implements ReimbursementDao {
 	public List<Reimbursement> getAllDeniedReimbursements() {
 		// TODO Auto-generated method stub
 		Session ses = HibernateUtil.getSession();
-		List<Reimbursement> rList = ses.createQuery("from reimbursement where re_status_id = 1", Reimbursement.class).list();
+		List<Reimbursement> rList = ses.createQuery("from Reimbursement where re_status_id = 1", Reimbursement.class).list();
 		return rList;
 	}
 
@@ -92,7 +91,7 @@ public class ReimbursementDaoDB implements ReimbursementDao {
 	public List<Reimbursement> getAllPendingReimbursementsForUser(User u) {
 		// TODO Auto-generated method stub
 		Session ses = HibernateUtil.getSession();
-		List<Reimbursement> rList = ses.createQuery("from reimbursement where re_status_id = 2", Reimbursement.class).list();
+		List<Reimbursement> rList = ses.createQuery("from Reimbursement where re_status_id = 2", Reimbursement.class).list();
 		List<Reimbursement> result = new ArrayList<Reimbursement>();
 		for(Reimbursement curr:rList) {
 			if(curr.getEmployee()==u) {
@@ -106,7 +105,7 @@ public class ReimbursementDaoDB implements ReimbursementDao {
 	public List<Reimbursement> getAllApprovedReimbursementsForUser(User u) {
 		// TODO Auto-generated method stub
 		Session ses = HibernateUtil.getSession();
-		List<Reimbursement> rList = ses.createQuery("from reimbursement where re_status_id = 0", Reimbursement.class).list();
+		List<Reimbursement> rList = ses.createQuery("from Reimbursement where re_status_id = 0", Reimbursement.class).list();
 		List<Reimbursement> result = new ArrayList<Reimbursement>();
 		for(Reimbursement curr:rList) {
 			if(curr.getEmployee()==u) {
@@ -119,7 +118,7 @@ public class ReimbursementDaoDB implements ReimbursementDao {
 	@Override
 	public List<Reimbursement> getAllDeniedReimbursementsForUser(User u) {
 		Session ses = HibernateUtil.getSession();
-		List<Reimbursement> rList = ses.createQuery("from reimbursement where re_status_id = 3", Reimbursement.class).list();
+		List<Reimbursement> rList = ses.createQuery("from Reimbursement where re_status_id = 3", Reimbursement.class).list();
 		List<Reimbursement> result = new ArrayList<Reimbursement>();
 		for(Reimbursement curr:rList) {
 			if(curr.getEmployee()==u) {

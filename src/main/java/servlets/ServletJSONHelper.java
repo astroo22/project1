@@ -36,6 +36,30 @@ public class ServletJSONHelper {
 			case "/project1/api/getUser":
 				ReimbursementController.getUserById(req, res);
 				break;
+			case "/project1/api/getAllPending":
+				ReimbursementController.getAllPendingReimbursements(req, res);
+				break;
+			case "/project1/api/getAllApproved":
+				ReimbursementController.getAllReimbursements(req, res);
+				break;
+			case "/project1/api/getAllDenied":
+				ReimbursementController.getAllDeniedReimbursements(req, res);
+				break;
+			case "/project1/api/getAllReimbursements":
+				ReimbursementController.getAllReimbursements(req, res);
+				break;
+			case "/project1/api/getAllReimbursementsByUser":
+				ReimbursementController.getAllByUser(req, res);
+				break;
+			case "/project1/api/getAllApprovedReimbursementsByUser":
+				ReimbursementController.getAllApprovedReimbursementsByUser(req, res);
+				break;
+			case "/project1/api/getAllDeniedReimbursementsByUser":
+				ReimbursementController.getAllDeniedReimbursementsByUser(req, res);
+				break;
+			case "/project1/api/getAllPendingReimbursementsByUser":
+				ReimbursementController.getAllPendingReimbursementsByUser(req, res);
+				break;
 		}
 	}
 }

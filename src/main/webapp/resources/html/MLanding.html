@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<!--  employee landing page this has links to EReimb and EAccount -->
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <meta name = "viowport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="../css/css.css">
 		<link rel="stylesheet" href="../css/navbar.css" >
-		<title>Update Acc info</title>
+		<link rel="stylesheet" href="../css/manager.css">
+		<title>Manager page big power much wow</title>
 		<meta charset="utf-8">
 </head>
 <body>
@@ -14,24 +14,22 @@
 			<ul class="nav-items">
 				<li class="nav-item">Home</li>
 				<li class="nav-item" id ="logout">Logout</li>
-				<li class="nav-item" id ="EReimb">Reimbursements</li>
 			</ul>
 	</div>
 	<div class="container">
 		<h2 id="pain">Existance is pain. enjoy your stay #kinda cool#!</h2>
 		<div class="reimbursement">
 			<select name="status" id="status">
-				<option value=0>View my pending</option>
-				<option value=1>View my approved</option>
-				<option value=2>View my denied</option>
-
+				<option value=0>Pending</option>
+				<option value=1>Approved</option>
+				<option value=2>Denied</option>
+				<option value=3>Show All</option>
 			</select>
 			<button id="submitF"> Filter by status</button>
 			<table id="rtable" class="r-table">
 			</table>
 		</div>
 	</div>
-	<script src="../js/logout.js"></script>
-	<script src="../js/EAcc.js"></script>
+	<script src="../js/MLanding.js"></script>
 </body>
 </html>

@@ -31,7 +31,7 @@ public class Reimbursement {
 	@Column(name ="reimb_amount",nullable = false)
 	private double reimb_Amount;
 	
-	@Column(name ="submitted")
+	@Column(name ="submitted", nullable = false)
 	private Timestamp submitted;
 	
 	@Column(name ="resolved")
@@ -70,6 +70,13 @@ public class Reimbursement {
 
 	public Timestamp getResolved() {
 		return resolved;
+	}
+
+	@Override
+	public String toString() {
+		return "Reimbursement [id=" + id + ", reimb_Amount=" + reimb_Amount + ", submitted=" + submitted + ", resolved="
+				+ resolved + ", description=" + description + ", rStatus=" + rStatus + ", type=" + type + ", employee="
+				+ employee + ", manager=" + manager + "]";
 	}
 
 	public void setResolved(Timestamp resolved) {

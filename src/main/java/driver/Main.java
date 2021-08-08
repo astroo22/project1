@@ -7,6 +7,7 @@ import java.time.Instant;
 import java.util.*;
 import org.apache.log4j.Logger;
 
+import controllers.ReimbursementController;
 import dao.ReimbursementDaoDB;
 import dao.UserDaoHibernate;
 import dao.UserRoleDaoDB;
@@ -54,9 +55,11 @@ public class Main {
 		 Timestamp ts = Timestamp.from(Instant.now());
 		 Timestamp ts2 = Timestamp.from(Instant.now());
 		 User e1 = uServ.getUserById(2);
-		 User m = uServ.getUserById(1);
-		  Reimbursement r = new Reimbursement(563,ts,ts2,"Something",rs,t,e1,m);
-		 
+		 User m = uServ.getUserById(4);
+		 Reimbursement r = new Reimbursement(563,ts,ts2,"Something",rs,t,e1,m);
+		 Reimbursement r2 = new Reimbursement(231,ts,ts2,"Somethingelse",rs,t,e1,m);
+		 Reimbursement r3 = new Reimbursement(5462,ts,ts2,"Somethingdied",rs1,t2,e1,m);
+		// ReimbursementController.getAllReimbursements(null, null);
 		 try {
 			uDao.createUser(u);
 			uDao.createUser(u2);
@@ -70,7 +73,8 @@ public class Main {
 			rDao.createReimbursementStatus(rs1);
 			rDao.createReimbursementStatus(rs2);
 			rDao.createReimbursement(r);
-			
+			rDao.createReimbursement(r2);
+			rDao.createReimbursement(r3);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

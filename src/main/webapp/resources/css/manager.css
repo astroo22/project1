@@ -1,0 +1,66 @@
+@charset "ISO-8859-1";
+body {
+	margin: 0;
+	background: #00ff40;
+	color: #000000;
+}
+
+.container {
+	margin: 60px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.reimbursements {
+	height: 100%;
+	width: 67%;
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	justify-content: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.r-table {
+	border-collapse: collapse;
+}
+td, th {
+	border: 1px solid #1F1F1F;
+	text-align: left;
+	padding: 10px;
+}
+
+tr:nth-child(even) {
+	background-color: #ffe3bb;
+}
+
+tr:nth-child(even) {
+	background-color: #000000;
+	color: #D6D6D6;
+}
+
+tr:nth-child(odd) {
+	background-color: #ff8080;
+	color: #D6D6D6;
+}
+td, th {
+	border: 1px solid #1F1F1F;
+	text-align: left;
+	padding: 10px;
+}
+
+tr:nth-child(even) {
+	background-color: #ffe3bb;
+}
+
+tr:nth-child(even) {
+	background-color: #000000;
+	color: #D6D6D6;
+}
+
+tr:nth-child(odd) {
+	background-color: #ff8040;
+	color: #D6D6D6;
+}

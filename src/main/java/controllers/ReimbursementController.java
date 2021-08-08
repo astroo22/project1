@@ -162,8 +162,74 @@ public class ReimbursementController {
 		res.setHeader("Access-Control-Allow-Methods", "GET");
 		res.getWriter().write(new ObjectMapper().writeValueAsString(u));
 	}
-
+	public static void getAllPendingReimbursements(HttpServletRequest req, HttpServletResponse res) throws JsonProcessingException, IOException{
+		List<Reimbursement> re = rServ.getAllPendingReimbursements();
+		res.addHeader("Access-Control-Allow-Origin", "*");
+		res.setHeader("Access-Control-Allow-Methods", "GET");
+		res.getWriter().write(new ObjectMapper().writeValueAsString(re));
+	}
+	public static void getAllAcceptedReimbursements(HttpServletRequest req, HttpServletResponse res) throws JsonProcessingException, IOException{
+		List<Reimbursement> re = rServ.getAllApprovedReimbursements();
+		res.addHeader("Access-Control-Allow-Origin", "*");
+		res.setHeader("Access-Control-Allow-Methods", "GET");
+		res.getWriter().write(new ObjectMapper().writeValueAsString(re));
+	}
 	
+	public static void getAllDeniedReimbursements(HttpServletRequest req, HttpServletResponse res) throws JsonProcessingException, IOException{
+		List<Reimbursement> re = rServ.getAllDeniedReimbursements();
+		res.addHeader("Access-Control-Allow-Origin", "*");
+		res.setHeader("Access-Control-Allow-Methods", "GET");
+		res.getWriter().write(new ObjectMapper().writeValueAsString(re));
+	}
+	
+	public static void getAllReimbursements(HttpServletRequest req, HttpServletResponse res) throws JsonProcessingException, IOException{
+		int id = Integer.parseInt(req.getSession().getAttribute("id").toString());
+		User u = uServ.getUserById(id);
+		System.out.println("Getallreimbursements");
+		List<Reimbursement> re = rServ.getAllReimbursements();
+		System.out.println(re.toString());
+		res.addHeader("Access-Control-Allow-Origin", "*");
+		res.setHeader("Access-Control-Allow-Methods", "GET");
+		System.out.println("Getallreimbursements");
+		res.getWriter().write(new ObjectMapper().writeValueAsString(re));
+		System.out.println("Getallreimbursements");
+	}
+	public static void getAllApprovedReimbursementsByUser(HttpServletRequest req, HttpServletResponse res) throws JsonProcessingException, IOException{
+		int id = Integer.parseInt(req.getSession().getAttribute("id").toString());
+		User u = uServ.getUserById(id);
+		System.out.println("Getallreimbursements");
+		List<Reimbursement> re = rServ.getAllApprovedReimbursementsForUser(u);
+		System.out.println(re.toString());
+		res.addHeader("Access-Control-Allow-Origin", "*");
+		res.setHeader("Access-Control-Allow-Methods", "GET");
+		System.out.println("Getallreimbursements");
+		res.getWriter().write(new ObjectMapper().writeValueAsString(re));
+		System.out.println("Getallreimbursements");
+	}
+	public static void getAllDeniedReimbursementsByUser(HttpServletRequest req, HttpServletResponse res) throws JsonProcessingException, IOException{
+		int id = Integer.parseInt(req.getSession().getAttribute("id").toString());
+		User u = uServ.getUserById(id);
+		System.out.println("Getallreimbursements");
+		List<Reimbursement> re = rServ.getAllDeniedReimbursementsForUser(u);
+		System.out.println(re.toString());
+		res.addHeader("Access-Control-Allow-Origin", "*");
+		res.setHeader("Access-Control-Allow-Methods", "GET");
+		System.out.println("Getallreimbursements");
+		res.getWriter().write(new ObjectMapper().writeValueAsString(re));
+		System.out.println("Getallreimbursements");
+	}
+	public static void getAllPendingReimbursementsByUser(HttpServletRequest req, HttpServletResponse res) throws JsonProcessingException, IOException{
+		int id = Integer.parseInt(req.getSession().getAttribute("id").toString());
+		User u = uServ.getUserById(id);
+		System.out.println("Getallreimbursements");
+		List<Reimbursement> re = rServ.getAllPendingReimbursementsForUser(u);
+		System.out.println(re.toString());
+		res.addHeader("Access-Control-Allow-Origin", "*");
+		res.setHeader("Access-Control-Allow-Methods", "GET");
+		System.out.println("Getallreimbursements");
+		res.getWriter().write(new ObjectMapper().writeValueAsString(re));
+		System.out.println("Getallreimbursements");
+	}
 	
 	
 }

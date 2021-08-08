@@ -48,6 +48,9 @@ public class ServletJSONHelper {
 			case "/project1/api/getAllReimbursements":
 				ReimbursementController.getAllReimbursements(req, res);
 				break;
+			case "/project1/api/getAllByUser":
+				ReimbursementController.getAllByUser(req, res);
+				break;
 			case "/project1/api/getAllReimbursementsByUser":
 				ReimbursementController.getAllByUser(req, res);
 				break;
@@ -59,6 +62,12 @@ public class ServletJSONHelper {
 				break;
 			case "/project1/api/getAllPendingReimbursementsByUser":
 				ReimbursementController.getAllPendingReimbursementsByUser(req, res);
+				break;
+			case "/project1/api/approveReimbursement":
+				ReimbursementController.approveReimbursement(req, res);
+				break;
+			case "/project1/api/denyReimbursement":
+				ReimbursementController.denyReimbursement(req, res);
 				break;
 		}
 	}

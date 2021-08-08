@@ -57,6 +57,7 @@ public class ReimbursementService {
 		List<Reimbursement> penL = rDao.getAllPendingReimbursementsForUser(u);
 		List<Reimbursement> denL = rDao.getAllDeniedReimbursementsForUser(u);
 		List<Reimbursement> appL = rDao.getAllApprovedReimbursementsForUser(u);
+		System.out.println("we still in reimbursements for users");
 		for(Reimbursement r:penL) {
 			System.out.println("r:penl");
 			System.out.println(r.toString());
@@ -78,6 +79,7 @@ public class ReimbursementService {
 		Reimbursement r = new Reimbursement(id,amount,timestamp, ts,description,status,type,employe,manager);
 		rDao.updateReimbursement(r);
 	}
+	
 	
 	public List<Reimbursement> getAllReimbursements(){
 		return rDao.getAllReimbursements();
@@ -105,14 +107,13 @@ public class ReimbursementService {
 	public List<Reimbursement> getAllDeniedReimbursementsForUser(User u){
 		System.out.println("get All Reimbursements for User55");
 		List<Reimbursement> results = new ArrayList<Reimbursement>();
-
 		List<Reimbursement> denL = rDao.getAllDeniedReimbursementsForUser(u);
 		for(Reimbursement r:denL) {
 			System.out.println("r:penl");
 			System.out.println(r.toString());
 			results.add(r);
 		}
-
+		System.out.println("r:penl");
 		return results;
 	}
 	public List<Reimbursement> getAllPendingReimbursementsForUser(User u){

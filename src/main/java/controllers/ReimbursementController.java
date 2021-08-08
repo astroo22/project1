@@ -36,28 +36,14 @@ public class ReimbursementController {
 	private static ReimbursementService rServ = new ReimbursementService(rDao);
 	
 	public static void getAllByUser(HttpServletRequest req, HttpServletResponse res) throws JsonProcessingException, IOException{
-		StringBuilder buffer = new StringBuilder();
-		BufferedReader reader = req.getReader();
-		//breaking up the JSON string object into separate lines to use later
-		String line;
-		while((line= reader.readLine()) != null) {
-			buffer.append(line);
-			buffer.append(System.lineSeparator());
-		}
-		//we converted the string builder into a string which the ObjectMapper can read from
-		String data = buffer.toString();
-		System.out.println(data);
-		ObjectMapper mapper = new ObjectMapper();
-		//the object mpapper is capable of parsing the data out of the string that we created from the request
-		JsonNode parsedObj = mapper.readTree(data);
-		String userName = parsedObj.get("username").asText();
-		User u = uServ.getUserByUsername(userName);
-		List<Reimbursement> rl = rServ.getAllReimbursementsForUser(u);
-		System.out.println("In getAllByUser");
-		System.out.println(rl);
+		int id = Integer.parseInt(req.getSession().getAttribute("id").toString());
+		User u = uServ.getUserById(id);
+		System.out.println(u);
+		List<Reimbursement> r = rServ.getAllReimbursementsForUser(u);
+		System.out.println(r);
 		res.addHeader("Access-Control-Allow-Origin", "*");
 		res.setHeader("Access-Control-Allow-Methods", "GET");
-		res.getWriter().write(new ObjectMapper().writeValueAsString(rl));
+		res.getWriter().write(new ObjectMapper().writeValueAsString(r));
 	}
 	
 	public static void addReimbursements(HttpServletRequest req, HttpServletResponse res) throws JsonProcessingException, IOException{
@@ -115,9 +101,10 @@ public class ReimbursementController {
 		
 		Timestamp ts = Timestamp.from(Instant.now());
 		//reimbursement id
-		int rid = Integer.parseInt(parsedObj.get("r_id").asText());
+		int rid = Integer.parseInt(parsedObj.get("rid").asText());
 		Reimbursement r = rDao.getReimbursementById(rid);
 		int managerId = Integer.parseInt(parsedObj.get("manager_id").asText());
+		System.out.println("got manager id: "+ managerId);
 		User manager = uDao.getUserById(managerId);
 		ReimbursementStatus status = new ReimbursementStatus(2,RStatus.APPROVED);
 		ObjectNode ret = mapper.createObjectNode();
@@ -143,13 +130,13 @@ public class ReimbursementController {
 		
 		Timestamp ts = Timestamp.from(Instant.now());
 		//reimbursement id
-		int rid = Integer.parseInt(parsedObj.get("r_id").asText());
+		int rid = Integer.parseInt(parsedObj.get("rid").asText());
 		Reimbursement r = rDao.getReimbursementById(rid);
 		int managerId = Integer.parseInt(parsedObj.get("manager_id").asText());
 		User manager = uDao.getUserById(managerId);
 		ReimbursementStatus status = new ReimbursementStatus(2,RStatus.DENIED);
 		ObjectNode ret = mapper.createObjectNode();
-		ret.put("message",  "Successfully approved a DENYING request maybe idk i copy pastad this code from above");
+		ret.put("message",  "Successfully approved a DENYING request maybe idk i copy pastad this code from approved");
 		rServ.updateReimbursement(r.getId(), r.getReimb_Amount(), r.getSubmitted(), ts,
 				r.getDescription(), status, r.getType(), r.getEmployee(), manager);
 		res.getWriter().write(new ObjectMapper().writeValueAsString(ret));

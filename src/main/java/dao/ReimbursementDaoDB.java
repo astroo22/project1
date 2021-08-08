@@ -26,6 +26,7 @@ public class ReimbursementDaoDB implements ReimbursementDao {
           Transaction tx = ses.beginTransaction();
           ses.save(r);
           tx.commit();
+         
 	}
 	@Override
 	public List<Reimbursement> selectAllReimbursements() {
@@ -52,7 +53,7 @@ public class ReimbursementDaoDB implements ReimbursementDao {
 		// TODO Auto-generated method stub
 		   Session ses = HibernateUtil.getSession();
            Transaction tx = ses.beginTransaction();
-           ses.update(rm);
+           ses.merge(rm);
            tx.commit();
 		
 	}

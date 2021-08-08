@@ -15,10 +15,14 @@
 	}
 	
 }
+document.getElementById("manage").addEventListener('click',()=>{
+	location.href = "../html/ManagerAND.html";
+});
 document.getElementById("logout").addEventListener('click', async () => {
 	let res = await fetch('http://localhost:8080/project1/api/logout');
 	userId = -1;
 	verifyLoggedIn();
+	location.href = "../html/login.html";
 });
 let populateTable = (obj) => {
 	let table = document.getElementById("rtable");
@@ -39,9 +43,9 @@ let populateTable = (obj) => {
 		let amount = row.insertCell(2);
 		amount.innerHTML = Number(obj.reimb_Amount).toFixed(2);
 		
-		let description = row.insertCell(3);
-		description.innerHTML = obj.description;
-		
+		let subBy = row.insertCell(3);
+		subBy.innerHTML = obj.employee.username;
+
 		let submitted = row.insertCell(4);
 		submitted.innerHTML = new Date(obj.submitted).toDateString();
 		

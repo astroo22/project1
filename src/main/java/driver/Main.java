@@ -56,11 +56,19 @@ public class Main {
 		 Timestamp ts2 = Timestamp.from(Instant.now());
 		 User e1 = uServ.getUserById(2);
 		 User m = uServ.getUserById(4);
-		 Reimbursement r = new Reimbursement(563,ts,ts2,"Something",rs,t,e1,m);
-		 Reimbursement r2 = new Reimbursement(231,ts,ts2,"Somethingelse",rs,t,e1,m);
-		 Reimbursement r3 = new Reimbursement(5462,ts,ts2,"Somethingdied",rs1,t2,e1,m);
+		 Reimbursement r = new Reimbursement(563,ts,ts2,"Something",rs,t,u2,u4);
+		 Reimbursement r2 = new Reimbursement(231,ts,ts2,"Somethingelse",rs,t,u2,u4);
+		 Reimbursement r3 = new Reimbursement(5462,ts,ts2,"Somethingdied",rs1,t2,u2,u4);
 		// ReimbursementController.getAllReimbursements(null, null);
+		 
+		 
+		 Reimbursement r4 = new Reimbursement(100,ts,"description super good",rs2,t,u2);
+		 Reimbursement r5 = new Reimbursement(50,ts,"Even better super good description",rs2,t1,u2);
+		 
+		 
+		 
 		 try {
+			 
 			uDao.createUser(u);
 			uDao.createUser(u2);
 			uDao.createUser(u3);
@@ -75,6 +83,10 @@ public class Main {
 			rDao.createReimbursement(r);
 			rDao.createReimbursement(r2);
 			rDao.createReimbursement(r3);
+			rDao.createReimbursement(r4);
+			rDao.createReimbursement(r5);
+			 
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -28,5 +28,10 @@ public class ReimbursementType {
 	public ReimbursementType() {
 		
 	}
+	@Override
+	public String toString() {
+		return "" + type;
+	}
+	
  
 }

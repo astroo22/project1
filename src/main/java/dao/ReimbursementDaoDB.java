@@ -28,6 +28,14 @@ public class ReimbursementDaoDB implements ReimbursementDao {
           tx.commit();
          
 	}
+	/*
+	@Override
+	public ReimbursementStatus getReimbursementStatus(int id) {
+		Session ses = HibernateUtil.getSession();
+		System.out.println("This method doesn't work");
+		ReimbursementStatus rs = (ReimbursementStatus) ses.createQuery("select * from reimbursement_status where ");
+		return rs;
+	}*/
 	@Override
 	public List<Reimbursement> selectAllReimbursements() {
 		// TODO Auto-generated method stub

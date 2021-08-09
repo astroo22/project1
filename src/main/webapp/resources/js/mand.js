@@ -15,7 +15,7 @@
 	}	
 }
 document.getElementById("home").addEventListener('click', () => {
-	location.href = "../html/ELanding.html";
+	location.href = "../html/MLanding.html";
 	});
 document.getElementById("logout").addEventListener('click', async () => {
 	let res = await fetch('http://localhost:8080/project1/api/logout');
@@ -41,10 +41,10 @@ let populateTable = (list)=>{
 		row.id = obj.id;
 
 		let status = row.insertCell(0);
-		status.innerHTML = obj.rStatus;
+		status.innerHTML = obj.rStatus.r_status;
 		
 		let type = row.insertCell(1);
-		type.innerHTML = obj.type;
+		type.innerHTML = obj.type.r_type;
 		
 		let subBy = row.insertCell(2);
 		subBy.innerHTML = obj.employee.username;

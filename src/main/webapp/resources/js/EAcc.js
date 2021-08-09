@@ -32,7 +32,6 @@ let populateTable = (obj) => {
 		let row=table.insertRow(count++);
 		row.id = obj.id;
 
-		
 		let status = row.insertCell(0);
 		status.innerHTML = obj.rStatus;
 		

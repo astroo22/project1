@@ -9,5 +9,5 @@
 	req = await fetch('http://localhost:8080/project1/api/getSession');
 	res = await req.text();
 	console.log(res);
-	location.href = 'resources/html/login.html';
+	location.href = '../html/login.html';
 }

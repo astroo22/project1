@@ -50,13 +50,17 @@ public class User{
 	@OneToMany(mappedBy="manager",fetch=FetchType.LAZY)
 	@JsonIgnore
 	private List<Reimbursement> manager = new ArrayList<Reimbursement>();
-	
-	
-	
 	public User() {
 		//posts = new ArrayList<Post>();
 	}
-	
+
+	@Override
+	public String toString() {
+		return  "\n"+"Id: " + id + "\n" + "First Name: " + firstName + "\n" + "Last Name: " + lastName + "\n" + "Username: " + username
+				+ "\n" + "Email: " + email + "\n" + "Password: " + password + "\n"+ "Role: " + user_role + "\n";
+	}
+
+
 	public User(int id, String firstName, String lastName, String email, String password) {
 		this.id = id;
 		this.firstName = firstName;

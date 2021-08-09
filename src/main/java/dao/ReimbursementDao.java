@@ -22,6 +22,7 @@ public interface ReimbursementDao {
 	public void createReimbursementType(ReimbursementType t);
 	public void createReimbursementStatus(ReimbursementStatus t);
 	public Reimbursement getReimbursementById(int id);
+	//public ReimbursementStatus getReimbursementStatus(int id);
 	
 	
 }

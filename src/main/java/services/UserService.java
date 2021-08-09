@@ -56,6 +56,7 @@ public class UserService {
 			//Loggin.logger.info("User was logged in");
 			return u;
 		}
+		
 	}
 	public User getUserByUsername(String username) {
 		User u = uDao.getUserByUsername(username);

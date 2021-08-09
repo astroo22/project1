@@ -17,6 +17,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import dao.ReimbursementDao;
 import dao.ReimbursementDaoDB;
+import dao.StatusDao;
+import dao.TypeDao;
 import dao.UserDaoHibernate;
 import dao.UserRoleDaoDB;
 import enums.RStatus;
@@ -34,6 +36,9 @@ public class ReimbursementController {
 	private static UserRoleDaoDB urDao = new UserRoleDaoDB();
 	private static ReimbursementDao rDao = new ReimbursementDaoDB();
 	private static ReimbursementService rServ = new ReimbursementService(rDao);
+	private static TypeDao tDao = new TypeDao();
+	private static StatusDao sDao = new StatusDao();
+	
 	
 	public static void getAllByUser(HttpServletRequest req, HttpServletResponse res) throws JsonProcessingException, IOException{
 		int id = Integer.parseInt(req.getSession().getAttribute("id").toString());
@@ -106,8 +111,9 @@ public class ReimbursementController {
 		int managerId = Integer.parseInt(parsedObj.get("manager_id").asText());
 		System.out.println("got manager id: "+ managerId);
 		User manager = uDao.getUserById(managerId);
-		ReimbursementStatus status = new ReimbursementStatus(2,RStatus.APPROVED);
+		ReimbursementStatus status = sDao.getStatusById(0);
 		ObjectNode ret = mapper.createObjectNode();
+		r.setrStatus(status);
 		ret.put("message",  "Successfully approved a request maybe who knows i dont");
 		rServ.updateReimbursement(r.getId(), r.getReimb_Amount(), r.getSubmitted(), ts,
 				r.getDescription(), status, r.getType(), r.getEmployee(), manager);
@@ -134,8 +140,9 @@ public class ReimbursementController {
 		Reimbursement r = rDao.getReimbursementById(rid);
 		int managerId = Integer.parseInt(parsedObj.get("manager_id").asText());
 		User manager = uDao.getUserById(managerId);
-		ReimbursementStatus status = new ReimbursementStatus(2,RStatus.DENIED);
+		ReimbursementStatus status = sDao.getStatusById(1);
 		ObjectNode ret = mapper.createObjectNode();
+		r.setrStatus(status);
 		ret.put("message",  "Successfully approved a DENYING request maybe idk i copy pastad this code from approved");
 		rServ.updateReimbursement(r.getId(), r.getReimb_Amount(), r.getSubmitted(), ts,
 				r.getDescription(), status, r.getType(), r.getEmployee(), manager);
@@ -186,6 +193,7 @@ public class ReimbursementController {
 		User u = uServ.getUserById(id);
 		System.out.println("Getallreimbursements");
 		List<Reimbursement> re = rServ.getAllApprovedReimbursementsForUser(u);
+		re.toString();
 		System.out.println(re.toString());
 		res.addHeader("Access-Control-Allow-Origin", "*");
 		res.setHeader("Access-Control-Allow-Methods", "GET");

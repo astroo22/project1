@@ -31,6 +31,11 @@ public class ReimbursementStatus {
 	        this.id = id;
 	        this.reimbursement_status = reibursement_status;
 	}
+
+	@Override
+	public String toString() {
+		return "" + reimbursement_status;
+	}
 }
 /*private enum reimbursement_status{
 SUBMITTED,

@@ -9,6 +9,8 @@ import org.apache.log4j.Logger;
 
 import controllers.ReimbursementController;
 import dao.ReimbursementDaoDB;
+import dao.StatusDao;
+import dao.TypeDao;
 import dao.UserDaoHibernate;
 import dao.UserRoleDaoDB;
 import enums.URoles;
@@ -34,6 +36,8 @@ public class Main {
 		UserDaoHibernate uDao= new UserDaoHibernate();
 		UserService uServ = new UserService(uDao);
 		UserRoleDaoDB urDao = new UserRoleDaoDB();
+		TypeDao tDao = new TypeDao();
+		StatusDao sDao = new StatusDao();
 		
 		ReimbursementDaoDB rDao = new ReimbursementDaoDB();
 		//ReimbursementService rServ = new ReimService(rDao);
@@ -85,7 +89,13 @@ public class Main {
 			rDao.createReimbursement(r3);
 			rDao.createReimbursement(r4);
 			rDao.createReimbursement(r5);
-			 
+			sDao.insert(rs);
+			sDao.insert(rs1);
+			sDao.insert(rs2);
+			tDao.insert(t);
+			tDao.insert(t1);
+			tDao.insert(t2);
+			tDao.insert(t3);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

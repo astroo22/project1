@@ -32,3 +32,9 @@ To-do list:
 - To start viewing the program login on the main page.
 - For Employee the login is Username: js9076 Password: password
 - For Manager the login is Username: as1818 Password: pass 
+
+## Archiving
+- This was a project to show tech I had worked with at the time and my experience doing so.
+- This has a # of vulnerabilities that were found in the time after it was created.
+- This code is not used nore is it referenced or connected to anything.
+- Archiving to avoid anymore email spam
